@@ -24,7 +24,7 @@ recline.Backend.GDocs.fetch({
 function loadCats(json) {
 	for (var i = 0; i < json.length; i++) {
 		var cat = json[i];
-		categorias.push(new Category(cat.area,cat.descripcion,cat.icono,cat.color));
+		categorias.push(new Category(cat.category,cat.description,cat.icon,cat.color));
 	}
 	console.log(i+" categories loaded");
 }
@@ -45,9 +45,9 @@ recline.Backend.GDocs.fetch({
 function loadMarkers(json) {
 	for (var i = 0; i < json.length; i++) {
 		var a = json[i];
-		var nombre = a.nombre;
-		var area = a.area;
-		var ciudad = a.ciudad;
+		var nombre = a.name;
+		var area = a.category;
+		var ciudad = a.city;
 		var web = a.web;
 		var twitter = a.twitter;
 		var facebook = a.facebook;
@@ -88,15 +88,15 @@ function loadMarkers(json) {
 
 			if (web) {
 				if (web.indexOf("http://") != 0) web = "http://"+web;
-				popupText += '<a href="'+web+'" target="_blanc">Web</a><br>';
+				popupText += '<a href="'+web+'" target="_blank">Web</a><br>';
 			}
 			if (twitter) {
 				if (twitter.indexOf("http://") != 0) twitter = "http://"+twitter;
-				popupText += '<a href="'+twitter+'" target="_blanc">Twitter</a><br>';
+				popupText += '<a href="'+twitter+'" target="_blank">Twitter</a><br>';
 			}
 			if (facebook) {
 				if (facebook.indexOf("http://") != 0) facebook = "http://"+facebook;
-				popupText += '<a href="'+facebook+'" target="_blanc">Facebook</a><br>';
+				popupText += '<a href="'+facebook+'" target="_blank">Facebook</a><br>';
 			}
 			popupText += '</p>';
 
